@@ -1,6 +1,8 @@
 import React from "react";
+import WorkExpCvView from "./WorkExpCvView";
+import EducationInfoCvView from "./EducationInfoCvView";
 import '../styles/app.css';
-import imgPlaceholder from '../images/cv-img-placeholder.jpeg';
+import placeholderImg from '../images/placeholder.jpeg';
 
 class Cvview extends React.Component {
 
@@ -8,7 +10,7 @@ class Cvview extends React.Component {
         return (
             <div className="cv-view-container">
                 <div className="personal-info-container">
-                    <img src={imgPlaceholder} alt='Alt' className="cv-image"/>
+                    <img src={placeholderImg} alt='Alt' className="cv-image"/>
                     <div className="personal-details">
                         <h3 className="sidebar-section-title">Personal Details</h3>
                         <div className="detail-container">
@@ -40,25 +42,17 @@ class Cvview extends React.Component {
                     </div>
                     <div className="work-experience">
                         <h2 className="detail-info-title">Work Experinece</h2>
-                        <div className="sub-work-exp-container">
-                            <div className="sub-work-exp-header">
-                                <h4 className="work-exp-item-title">{this.props.workExperience.position}</h4>
-                                <p className="from-to-info">{this.props.workExperience['work-from']} - {this.props.workExperience['work-to']}</p>
-                            </div>
-                            <p className="company-and-city">{this.props.workExperience.company}, {this.props.workExperience.city}</p>
-                        </div>
-                    </div>
+                        {this.props.workExperiences.map( (workExperience, index) => (workExperience.edited) ? (
+                            <WorkExpCvView workExperience={workExperience} key={index}/> 
+                        ): false )}
+                    </div> 
 
 
                     <div className="education-info">
                         <h2 className="detail-info-title">Education Information</h2>
-                        <div className="sub-education-info-container">
-                            <div className="sub-education-header">
-                                    <h4 className="education-info-item-title">Computer Science and Software Engineering</h4>
-                                    <p className="from-to-info">Sep 2002 - Jun 2007</p>
-                            </div>
-                            <div className="uni-name">University of London</div>
-                        </div>
+                        {this.props.educationInfo.map( (educationInfo, index)  => (educationInfo.edited) ? (
+                            <EducationInfoCvView educationInfo={educationInfo} key={index} /> 
+                        ): false )}
                     </div>
                 </div>
             </div>

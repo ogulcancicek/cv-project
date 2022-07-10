@@ -18,8 +18,15 @@ class Form extends React.Component {
 
     addNewWorkForm = (e) => {
         const temp = [...this.state.workFormCounter];
-        if (temp.length === 3) return;
+        if (temp.length >= 3) return;
         temp.push(1);
+        this.setState({workFormCounter: temp});
+    }
+
+    removeWorkForm = (e) => {
+        let temp = [...this.state.workFormCounter];
+        if (temp.length === 1) return;
+        temp = temp.slice(0,-1);
         this.setState({workFormCounter: temp});
     }
 
@@ -27,6 +34,17 @@ class Form extends React.Component {
         const temp = [...this.state.educationInfoCounter];
         if(temp.length >= 3) return;
         temp.push(1);
+        this.setState({educationInfoCounter: temp});
+    }
+
+    removeEducationForm = (e) => {
+        const index = e.target.parentNode.getAttribute('data-key');
+        console.log(index)
+        let temp = [...this.state.educationInfoCounter];
+        if (temp.length === 1) return;
+        console.log(temp)
+        temp.splice(index, 1);
+        console.log(temp)
         this.setState({educationInfoCounter: temp});
     }
 
@@ -46,13 +64,19 @@ class Form extends React.Component {
 
                 <section className="education-info-form">
                     <h2 className="form-title">Education Information</h2>
-                    {this.state.educationInfoCounter.map( (_, index) => <EducationInfoForm key={index} dataKey={index} onChange={this.props.onChange} />)}
+                    {this.state.educationInfoCounter.map( (_, index) => <EducationInfoForm key={index} 
+                                                                                            dataKey={index}
+                                                                                            onChange={this.props.onChange}
+                                                                                            removeEducationForm={this.removeEducationForm}/>)}
                     <button className="school-add option-buttons" onClick={this.addNewEducationForm}>Add</button>
                 </section>
 
                 <section className="experience-info-form">
                     <h2 className="form-title">Experience Information</h2>
-                    {this.state.workFormCounter.map( (_, index) => < WorkExperienceForm key={index} dataKey={index} onChange={this.props.onChange} /> )}                
+                    {this.state.workFormCounter.map( (_, index) => < WorkExperienceForm key={index}
+                                                                                        dataKey={index}
+                                                                                        onChange={this.props.onChange}
+                                                                                        removeWorkForm={this.removeWorkForm} /> )}                
                     <button className="work-add option-buttons" onClick={this.addNewWorkForm}>Add</button>
 
                     

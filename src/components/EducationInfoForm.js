@@ -4,15 +4,17 @@ export default class EducationInfoForm extends React.Component {
     render() {
         return(
             <div className="single-education-info-form" data-key={this.props.dataKey}>
-                <input type="text" name="uni-name" placeholder="University Name" />
-                <input type="text" name="city" placeholder="City" />
-                <input type="text" name="degree" id="degree" placeholder="Degree"/>
-                <input type="text" name="subject" id="subject" placeholder="Subject"/>
-                <div className="year-form-container flex-input-cont">
-                    <input type="text" name="from" placeholder="From" />
-                    <input type="text" name="to" placeholder="To" />
+                <input type="text" name="university" placeholder="University Name" onChange={this.props.onChange}/>
+                <input type="text" name="school-city" placeholder="City" onChange={this.props.onChange} />
+                <input type="text" name="subject" id="subject" placeholder="Subject" onChange={this.props.onChange}/>
+                <div className="year-form-container flex-input-cont"  data-key={this.props.dataKey}>
+                    <input type="text" name="school-from" placeholder="From" onChange={this.props.onChange} />
+                    <input type="text" name="school-to" placeholder="To" onChange={this.props.onChange}/>
                 </div>
-                <button className="school-remove option-buttons">Delete</button>
+                {(this.props.dataKey !== 0) ? (
+                    <button className="school-remove option-buttons" onClick={this.props.removeEducationForm}>Delete</button>
+                ): false}
+                
             </div>
         );
     }
