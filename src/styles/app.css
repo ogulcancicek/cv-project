@@ -88,11 +88,115 @@ textarea{
 }
 
 .cv-view-container{
+    display: flex;
     width: 800px;
     height: 1020px;
     border: 1px solid rgb(43, 43, 43);
     border-radius: 15px;
 }
+
+.personal-info-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: rgba(43, 43, 43, 0.8);
+    color: white;
+}
+
+.fullname-cv{
+    text-align: center;
+    padding-top: 10px;
+}
+
+.cv-image{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 50px
+}
+
+.personal-details{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: 10px;
+}
+
+.detail-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sidebar-title{
+    text-decoration: underline;
+}
+
+.cv-right-side{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 500px;
+}
+
+.cv-personal-description{
+    width: 90%;
+    margin-left: 25px;
+    padding: 10px;
+    border-bottom: 1px solid rgb(43, 43, 43);
+}
+
+.work-experience{
+    width: 90%;
+    margin-left: 20px;
+    min-height: 300px;
+    border-bottom: 1px solid rgb(43, 43, 43);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sub-work-exp-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.work-exp-item-title{
+    font-size: 1.2rem;
+}
+
+.company-and-city{
+    font-size: 0.8rem;
+}
+
+.education-info{
+    width: 90%;
+    margin-left: 20px;
+    min-height: 300px;
+    border-bottom: 1px solid rgb(43, 43, 43);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sub-education-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.education-info-item-title{
+    font-size: 1rem;
+}
+
+.uni-name{
+    font-size: 0.8rem;
+}
+
+
 
 footer{
     width: 100%;
@@ -102,6 +206,7 @@ footer{
     align-items: center;
     background-color: rgb(43, 43, 43);
     color: white;
+    margin-top: 20px;
 }
 
 .footer-link{
