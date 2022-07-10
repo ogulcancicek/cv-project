@@ -83,8 +83,33 @@ textarea{
     cursor: pointer;
 }
 
-.experience-info-form > .school-add{
+.experience-info-form > .work-add{
     margin-bottom: 20px;
+}
+
+.single-work-exp-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.single-education-info-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-options{
+    margin-top: 0 !important;
+    margin-bottom: 5px;
+}
+
+.save-btn{
+    background-color: rgb(120, 194, 120);
+}
+
+.form-clear-btn{
+    background-color: rgb(194, 120, 120);
 }
 
 .cv-view-container{
