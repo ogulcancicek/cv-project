@@ -1,8 +1,8 @@
 {
-  "homepage": "http://ogulcancicek.github.io/cv-project",
   "name": "cv-project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://ogulcancicek.github.io/cv-project",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -10,7 +10,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "gh-pages": "^4.0.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
