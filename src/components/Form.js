@@ -40,7 +40,7 @@ class Form extends React.Component {
                 </section>
 
                 <section className="form-options">
-                    <button type="submit" className="save-btn option-buttons ">Save as PDF</button>
+                    <button type="submit" className="save-btn option-buttons" onClick={this.props.printDocument}>Save as PDF</button>
                     <button className="form-clear-btn option-buttons " onClick={this.props.clearForm}>Clear</button>
                 </section>
             </div>

@@ -1,4 +1,6 @@
 import React from "react";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import Header from "./components/Header";
 import Form from "./components/Form";
 import Cvview from "./components/Cvview";
@@ -48,6 +50,7 @@ class App extends React.Component {
     this.removeEducationForm = this.removeEducationForm.bind(this);
     this.clearForm = this.clearForm.bind(this);
     this.imageHandler = this.imageHandler.bind(this);
+    this.printDocument = this.printDocument.bind(this);
   }
 
   onChange = (e) => {
@@ -88,6 +91,7 @@ class App extends React.Component {
 
 
   addNewWorkForm = (e) => {
+    if (this.state.workFormCounter.length === 3) return;
     const newWorkForm = {
       position: 'Position',
       company: 'Company Name',
@@ -114,6 +118,7 @@ class App extends React.Component {
   }
 
   addNewEducationForm = () => {
+    if (this.state.educationInfoCounter.length === 3) return;
     const newSchoolForm = {
       university: 'University Name',
       city: 'City',
@@ -178,7 +183,6 @@ class App extends React.Component {
   }
 
   imageHandler = (e) => {
-    console.log('aaa');
     const reader = new FileReader();
     reader.onload = () => {
       if(reader.readyState === 2){
@@ -186,6 +190,17 @@ class App extends React.Component {
       }
     }
     reader.readAsDataURL(e.target.files[0]);
+  }
+
+  printDocument = () => {
+    const divToPrint = document.querySelector('.cv-view-container');
+    html2canvas(divToPrint)
+      .then( (canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF();
+        pdf.addImage(imgData, 'JPEG', 0, 0);
+        pdf.save('download.pdf');
+      });
   }
 
   render() {
@@ -201,7 +216,8 @@ class App extends React.Component {
               educationInfoCounter={this.state.educationInfoCounter}
               workFormCounter={this.state.workFormCounter}
               clearForm={this.clearForm}
-              imageHandler={this.imageHandler}  />
+              imageHandler={this.imageHandler}
+              printDocument={this.printDocument}  />
               
         <Cvview personalInfo={this.state.personalInfo} workExperiences={this.state.workExperiences} educationInfo={this.state.educationInfo} file={this.state.file}/>  
       </div>

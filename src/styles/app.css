@@ -117,7 +117,7 @@ textarea{
     width: 800px;
     height: 1020px;
     border: 1px solid rgb(43, 43, 43);
-    border-radius: 15px;
+    margin-top: 20px;
 }
 
 .personal-info-container{
@@ -126,8 +126,6 @@ textarea{
     gap: 20px;
     width: 300px;
     height: 100%;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
     background-color: rgb(18, 73, 124);
     color: white;
 }
