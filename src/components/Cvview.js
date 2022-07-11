@@ -10,7 +10,12 @@ class Cvview extends React.Component {
         return (
             <div className="cv-view-container">
                 <div className="personal-info-container">
-                    <img src={placeholderImg} alt='Alt' className="cv-image"/>
+                    {(this.props.file === null) ? (
+                        <img src={placeholderImg} alt='Alt' className="cv-image"/>
+                    ): (
+                        <img src={this.props.file} alt='Alt' className="cv-image"/>
+                    )}
+                    
                     <div className="personal-details">
                         <h3 className="sidebar-section-title">Personal Details</h3>
                         <div className="detail-container">

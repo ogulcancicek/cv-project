@@ -1,6 +1,7 @@
 import React from "react";
 
 export default class EducationInfoForm extends React.Component {
+
     render() {
         return(
             <div className="single-education-info-form" data-key={this.props.dataKey}>

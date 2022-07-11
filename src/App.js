@@ -38,6 +38,7 @@ class App extends React.Component {
       }],
       workFormCounter: [1],
       educationInfoCounter: [1],
+      file: null,
     }
 
     this.onChange = this.onChange.bind(this);
@@ -46,6 +47,7 @@ class App extends React.Component {
     this.addNewEducationForm = this.addNewEducationForm.bind(this);
     this.removeEducationForm = this.removeEducationForm.bind(this);
     this.clearForm = this.clearForm.bind(this);
+    this.imageHandler = this.imageHandler.bind(this);
   }
 
   onChange = (e) => {
@@ -171,9 +173,19 @@ class App extends React.Component {
         }],
         workFormCounter: [1],
         educationInfoCounter: [1],
-      })
+        file: null,
+      })      
+  }
 
-      
+  imageHandler = (e) => {
+    console.log('aaa');
+    const reader = new FileReader();
+    reader.onload = () => {
+      if(reader.readyState === 2){
+        this.setState({file: reader.result});
+      }
+    }
+    reader.readAsDataURL(e.target.files[0]);
   }
 
   render() {
@@ -188,9 +200,10 @@ class App extends React.Component {
               removeEducationForm={this.removeEducationForm}
               educationInfoCounter={this.state.educationInfoCounter}
               workFormCounter={this.state.workFormCounter}
-              clearForm={this.clearForm} />
+              clearForm={this.clearForm}
+              imageHandler={this.imageHandler}  />
               
-        <Cvview personalInfo={this.state.personalInfo} workExperiences={this.state.workExperiences} educationInfo={this.state.educationInfo}/>  
+        <Cvview personalInfo={this.state.personalInfo} workExperiences={this.state.workExperiences} educationInfo={this.state.educationInfo} file={this.state.file}/>  
       </div>
       <Footer />
       </>

@@ -11,7 +11,7 @@ class Form extends React.Component {
                 <section className="personal-info-form">
                     <h2 className="form-title">Personal Information</h2>
                     <input type="text" name="fullname" placeholder="Name" onChange={this.props.onChange}/>
-                    <input type="file" id="upload-img" name="img" accept="image/*" />
+                    <input type="file" id="upload-img" name="img" accept="image/*" onChange={this.props.imageHandler}/>
                     <input type="text" name="adress" placeholder="Adress" onChange={this.props.onChange}/>
                     <input type="tel" id="phone" name="phoneNumber" placeholder="Phone number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" onChange={this.props.onChange}></input>
                     <input type="email" name="email" id="email" placeholder="Email" onChange={this.props.onChange}/>
