@@ -40,6 +40,8 @@ class App extends React.Component {
       }],
       workFormCounter: [1],
       educationInfoCounter: [1],
+      disableWorkExpAddBtn: false,
+      disableEduInfoAddBtn: false,
       file: null,
     }
 
@@ -91,7 +93,8 @@ class App extends React.Component {
 
 
   addNewWorkForm = (e) => {
-    if (this.state.workFormCounter.length === 3) return;
+    if (this.state.workFormCounter.length === 3) return; 
+
     const newWorkForm = {
       position: 'Position',
       company: 'Company Name',
@@ -101,10 +104,11 @@ class App extends React.Component {
       edited: true,
     }
 
-    let temState = this.state;
-    temState.workExperiences.push(newWorkForm);
-    temState.workFormCounter.push(1);
-    this.setState(temState);
+    let tempState = this.state;
+    tempState.workExperiences.push(newWorkForm);
+    tempState.workFormCounter.push(1);
+    if(tempState.workFormCounter.length === 3) tempState.disableWorkExpAddBtn = true;
+    this.setState(tempState);
   }
 
   removeWorkForm = (e) => {
@@ -114,6 +118,7 @@ class App extends React.Component {
     if(tempState.workFormCounter.length === 1) return;
     tempState.workExperiences.splice(index, 1);
     tempState.workFormCounter.splice(index, 1);
+    tempState.disableWorkExpAddBtn = false;
     this.setState(tempState);
   }
 
@@ -131,6 +136,7 @@ class App extends React.Component {
     let tempState = this.state;
     tempState.educationInfo.push(newSchoolForm);
     tempState.educationInfoCounter.push(1);
+    if(tempState.educationInfoCounter.length === 3) tempState.disableEduInfoAddBtn = true;
     this.setState(tempState);
   }
 
@@ -141,6 +147,7 @@ class App extends React.Component {
       if(tempState.educationInfoCounter.length === 1) return;
       tempState.educationInfo.splice(index, 1);
       tempState.educationInfoCounter.splice(index, 1);
+      tempState.disableEduInfoAddBtn = false;
       this.setState(tempState);
   }
 
@@ -178,6 +185,8 @@ class App extends React.Component {
         }],
         workFormCounter: [1],
         educationInfoCounter: [1],
+        disableWorkExpAddBtn: false,
+        disableEduInfoAddBtn: false,
         file: null,
       })      
   }
@@ -217,7 +226,9 @@ class App extends React.Component {
               workFormCounter={this.state.workFormCounter}
               clearForm={this.clearForm}
               imageHandler={this.imageHandler}
-              printDocument={this.printDocument}  />
+              printDocument={this.printDocument}
+              disableWorkExpAddBtn={this.state.disableWorkExpAddBtn}
+              disableEduInfoAddBtn={this.state.disableEduInfoAddBtn} />
               
         <Cvview personalInfo={this.state.personalInfo} workExperiences={this.state.workExperiences} educationInfo={this.state.educationInfo} file={this.state.file}/>  
       </div>

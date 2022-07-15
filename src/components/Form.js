@@ -25,7 +25,7 @@ class Form extends React.Component {
                                                                                             dataKey={index}
                                                                                             onChange={this.props.onChange}
                                                                                             removeEducationForm={this.props.removeEducationForm}/>)}
-                    <button className="school-add option-buttons" onClick={this.props.addNewEducationForm}>Add</button>
+                    <button className="school-add option-buttons" onClick={this.props.addNewEducationForm} disabled={this.props.disableEduInfoAddBtn}>Add</button>
                 </section>
 
                 <section className="experience-info-form">
@@ -34,7 +34,7 @@ class Form extends React.Component {
                                                                                         dataKey={index}
                                                                                         onChange={this.props.onChange}
                                                                                         removeWorkForm={this.props.removeWorkForm} /> )}                
-                    <button className="work-add option-buttons" onClick={this.props.addNewWorkForm}>Add</button>
+                    <button className="work-add option-buttons" onClick={this.props.addNewWorkForm} disabled={this.props.disableWorkExpAddBtn}>Add</button>
 
                     
                 </section>

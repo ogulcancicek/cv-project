@@ -83,6 +83,11 @@ textarea{
     cursor: pointer;
 }
 
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
 .experience-info-form > .work-add{
     margin-bottom: 20px;
 }
@@ -98,6 +103,8 @@ textarea{
     flex-direction: column;
     gap: 10px;
 }
+
+
 
 .form-options{
     margin-top: 0 !important;
