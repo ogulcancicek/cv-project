@@ -23,23 +23,21 @@ class App extends React.Component {
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
       },
       workExperiences: [{
-        position: 'Position',
-        company: 'Company Name',
-        city: 'City',
-        'work-from': 'from',
-        'work-to': 'to',
+        position: '',
+        company: '',
+        city: '',
+        'work-from': '',
+        'work-to': '',
         edited: true,
       }],
       educationInfo: [{
-        university: 'University Name',
-        city: 'City',
-        subject: 'Subject',
-        'school-from': 'from',
-        'school-to': 'to',
+        university: '',
+        city: '',
+        subject: '',
+        'school-from': '',
+        'school-to': '',
         edited: true,
       }],
-      workFormCounter: [1],
-      educationInfoCounter: [1],
       disableWorkExpAddBtn: false,
       disableEduInfoAddBtn: false,
       file: null,
@@ -96,17 +94,16 @@ class App extends React.Component {
     if (this.state.workFormCounter.length === 3) return; 
 
     const newWorkForm = {
-      position: 'Position',
-      company: 'Company Name',
-      city: 'City',
-      'work-from': 'from',
-      'work-to': 'to',
+      position: '',
+      company: '',
+      city: '',
+      'work-from': '',
+      'work-to': '',
       edited: true,
     }
 
     let tempState = this.state;
     tempState.workExperiences.push(newWorkForm);
-    tempState.workFormCounter.push(1);
     if(tempState.workFormCounter.length === 3) tempState.disableWorkExpAddBtn = true;
     this.setState(tempState);
   }
@@ -117,7 +114,6 @@ class App extends React.Component {
     let tempState = this.state;
     if(tempState.workFormCounter.length === 1) return;
     tempState.workExperiences.splice(index, 1);
-    tempState.workFormCounter.splice(index, 1);
     tempState.disableWorkExpAddBtn = false;
     this.setState(tempState);
   }
@@ -125,17 +121,16 @@ class App extends React.Component {
   addNewEducationForm = () => {
     if (this.state.educationInfoCounter.length === 3) return;
     const newSchoolForm = {
-      university: 'University Name',
-      city: 'City',
-      subject: 'Subject',
-      'school-from': 'from',
-      'school-to': 'to',
+      university: '',
+      city: '',
+      subject: '',
+      'school-from': '',
+      'school-to': '',
       edited: true,
     }
 
     let tempState = this.state;
     tempState.educationInfo.push(newSchoolForm);
-    tempState.educationInfoCounter.push(1);
     if(tempState.educationInfoCounter.length === 3) tempState.disableEduInfoAddBtn = true;
     this.setState(tempState);
   }
@@ -146,7 +141,6 @@ class App extends React.Component {
       let tempState = this.state;
       if(tempState.educationInfoCounter.length === 1) return;
       tempState.educationInfo.splice(index, 1);
-      tempState.educationInfoCounter.splice(index, 1);
       tempState.disableEduInfoAddBtn = false;
       this.setState(tempState);
   }
@@ -183,8 +177,6 @@ class App extends React.Component {
           'school-to': 'to',
           edited: true,
         }],
-        workFormCounter: [1],
-        educationInfoCounter: [1],
         disableWorkExpAddBtn: false,
         disableEduInfoAddBtn: false,
         file: null,
@@ -222,8 +214,8 @@ class App extends React.Component {
               removeWorkForm={this.removeWorkForm}
               addNewEducationForm={this.addNewEducationForm}
               removeEducationForm={this.removeEducationForm}
-              educationInfoCounter={this.state.educationInfoCounter}
-              workFormCounter={this.state.workFormCounter}
+              educationInfos={this.state.educationInfo}
+              workExperiences={this.state.workExperiences}
               clearForm={this.clearForm}
               imageHandler={this.imageHandler}
               printDocument={this.printDocument}

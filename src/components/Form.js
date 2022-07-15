@@ -21,7 +21,8 @@ class Form extends React.Component {
 
                 <section className="education-info-form">
                     <h2 className="form-title">Education Information</h2>
-                    {this.props.educationInfoCounter.map( (_, index) => <EducationInfoForm key={index} 
+                    {this.props.educationInfos.map( (educationInfo, index) => <EducationInfoForm key={index}
+                                                                                            educationInfo={educationInfo} 
                                                                                             dataKey={index}
                                                                                             onChange={this.props.onChange}
                                                                                             removeEducationForm={this.props.removeEducationForm}/>)}
@@ -30,7 +31,8 @@ class Form extends React.Component {
 
                 <section className="experience-info-form">
                     <h2 className="form-title">Experience Information</h2>
-                    {this.props.workFormCounter.map( (_, index) => < WorkExperienceForm key={index}
+                    {this.props.workExperiences.map( (workExperience, index) => < WorkExperienceForm key={index}
+                                                                                        workExperience={workExperience}
                                                                                         dataKey={index}
                                                                                         onChange={this.props.onChange}
                                                                                         removeWorkForm={this.props.removeWorkForm} /> )}                
